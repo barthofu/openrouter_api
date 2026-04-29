@@ -3,7 +3,6 @@
 use crate::error::{Error, Result};
 use crate::models::structured::{JsonSchemaConfig, JsonSchemaDefinition};
 use crate::types::chat::{ChatCompletionRequest, ChatCompletionResponse, Message, MessageContent};
-use crate::types::status::StreamingStatus;
 use crate::utils::{
     retry::execute_with_retry_builder, retry::handle_response_json,
     retry::operations::STRUCTURED_GENERATE,
@@ -43,14 +42,13 @@ impl StructuredApi {
         let request = ChatCompletionRequest {
             model: model.to_string(),
             messages,
-            stream: Some(StreamingStatus::NotStarted),
+            stream: None,
             response_format: Some(crate::api::request::ResponseFormatConfig {
                 format_type: "json_schema".to_string(),
                 json_schema: JsonSchemaConfig {
                     name: "structured_output".to_string(),
                     strict: false,
-                    schema: JsonSchemaDefinition {
-                        schema_type: "object".to_string(),
+                    schema: JsonSchemaDefinition::Object {
                         properties: serde_json::Map::new(),
                         required: None,
                         additional_properties: None,
@@ -81,6 +79,8 @@ impl StructuredApi {
                 "strict": schema_config.strict
             },
         });
+
+        println!("Request body for structured output generation: {}", body);
 
         // Execute request with retry logic
         let response =
