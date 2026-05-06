@@ -596,7 +596,7 @@ fn is_valid_day_for_month(day: u32, month: u32, year: Option<u32>) -> bool {
 }
 
 /// Checks if a year is a leap year
-#[allow(clippy::manual_is_multiple_of)]
+#[allow(unknown_lints, clippy::manual_is_multiple_of)]
 fn is_leap_year(year: u32) -> bool {
     (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
 }
