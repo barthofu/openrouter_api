@@ -15,5 +15,5 @@ help: you might have meant to use the `new_unchecked` associated function
    |                              +++++++++++++++
 help: consider importing this unit variant instead
    |
- 8 + use openrouter_api::models::provider_preferences::ProviderSort::Price;
-   |
+8   + use openrouter_api::models::provider_preferences::ProviderSort::Price;
+    |

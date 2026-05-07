@@ -4,7 +4,7 @@ warning: unused import: `StreamingStatus`
 9 | use openrouter_api::types::{ChatRole, StreamingStatus};
   |                                       ^^^^^^^^^^^^^^^
   |
-  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+  = note: `#[warn(unused_imports)]` on by default
 
 error[E0004]: non-exhaustive patterns: `ChatRole::System` and `ChatRole::Tool` not covered
   --> tests/type_safety/pattern_non_exhaustive.rs:14:11
