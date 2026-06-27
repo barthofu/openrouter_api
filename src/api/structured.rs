@@ -183,12 +183,10 @@ impl StructuredApi {
                             ));
                         }
                     }
-                    "boolean" => {
-                        if !data.is_boolean() {
-                            return Err(Error::SchemaValidationError(
-                                "Expected a boolean but received a different type".into(),
-                            ));
-                        }
+                    "boolean" if !data.is_boolean() => {
+                        return Err(Error::SchemaValidationError(
+                            "Expected a boolean but received a different type".into(),
+                        ));
                     }
                     _ => {}
                 }
