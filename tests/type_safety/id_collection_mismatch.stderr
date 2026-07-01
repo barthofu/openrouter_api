@@ -4,7 +4,7 @@ warning: unused imports: `ActivityId` and `ToolCallId`
 6 | use openrouter_api::types::{ActivityId, GenerationId, ModelId, ToolCallId};
   |                             ^^^^^^^^^^                         ^^^^^^^^^^
   |
-  = note: `#[warn(unused_imports)]` on by default
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
 
 error[E0308]: mismatched types
   --> tests/type_safety/id_collection_mismatch.rs:12:9

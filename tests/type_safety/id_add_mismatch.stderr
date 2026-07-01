@@ -17,7 +17,7 @@ help: the return type of this call is `GenerationId` due to the type of the argu
 note: function defined here
   --> tests/type_safety/id_add_mismatch.rs:8:4
    |
-8  | fn combine_ids<T>(a: T, b: T) -> T {
+ 8 | fn combine_ids<T>(a: T, b: T) -> T {
    |    ^^^^^^^^^^^ -  ----  ---- this parameter needs to match the `ModelId` type of `a`
    |                |  |
    |                |  `b` needs to match the `ModelId` type of this parameter
@@ -29,4 +29,4 @@ warning: unused variable: `b`
 8 | fn combine_ids<T>(a: T, b: T) -> T {
   |                         ^ help: if this is intentional, prefix it with an underscore: `_b`
   |
-  = note: `#[warn(unused_variables)]` on by default
+  = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
